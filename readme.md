@@ -9,7 +9,7 @@ This repo contains a PowerShell script for the creation of a cronicle/diary entr
 * Change destination to the destination of all annual photos
     - this destination is synced with Google Photos which archives all pictures
 
-![import_items](../assets/img002687.jpg)
+![import_items](./assets/img002687.jpg)
 
 * Navigate to the master folder and delete redundant photos 
     - [Total Commander](https://www.ghisler.com/) for navigation
