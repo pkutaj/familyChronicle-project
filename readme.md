@@ -20,6 +20,4 @@ This repo contains a PowerShell script for the creation of a cronicle/diary entr
     - Save
     - Done
 
-![create_dailyPost](../assets/img002687.jpg)
-
 * Usually at on the first day of the month, navigate to the folder of the previous month, merge daily posts and create a `.pdf` and print it out to have a hardcopy of the chronicle, too
