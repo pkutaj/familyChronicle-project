@@ -13,12 +13,13 @@ function build-folderStructure {
 function backup {
     Set-Location $kronFolder
     $today = $today.ToString("yyyy-MM-dd")
-    git add . && git commit -m "$today" && git push
+    git add . 
+    git commit -m "$today" 
+    git push
 }
 
 
-function add-imageFromYesterday {
-    $span = (($today).DayOfWeek -ne "Tuesday") ? 1 : 3
+function add-imageFromYesterday([int]$span) {
     $i = 1
     $j = 1
     $masterImageFolder = "$env:kronMasterImageFolder\$yyyy"
@@ -38,7 +39,7 @@ function add-imageFromYesterday {
     
 }
 
-function create-post {
+function create-post([int]$span) {
     If (Test-Path $kronPost) {
         code $kronFolder
         Invoke-Item $kronPost
@@ -46,7 +47,7 @@ function create-post {
     Else {
         New-Item $kronPost
         Set-Content $kronPost -Value "### $yesterday"
-        add-imageFromYesterday
+        add-imageFromYesterday($span)
         code $kronFolder
         If (Read-Host "Modify mediaList? (y/Enter)") { Invoke-Item $mediaList }
         Invoke-Item $kronPost
@@ -74,13 +75,16 @@ function merge-posts {
     pandoc -V geometry:"top=2cm, bottom=1.5cm, left=2cm, right=2cm" -f markdown-implicit_figures -o $monthlyPdf $monthly
 }
 
-
-function new-kron ([switch]$merge) {
+function new-kron {
+    param (
+        [switch]$merge,
+        [int]$span = 1
+    )
     $oneDay = New-TimeSpan -Days 1
     $today = Get-Date
     [string]$yyyy = $today.Year.toString()
     $MM = ($today - $oneDay).Month
-    $MM = ($MM -lt 10) ? "0" + [string]$MM : [string]$MM
+    if ($MM -lt 10) { $MM = "0" + [string]$MM } else { [string]$MM }
     $yesterday = ($today - $oneDay).ToString("yyyy-MM-dd")
     $kronFolder = $env:kronFolder
     if (-not (Test-Path "$kronFolder\$yyyy")) { build-folderStructure }
@@ -90,7 +94,9 @@ function new-kron ([switch]$merge) {
     if ($merge) { merge-posts } 
     else { 
         $kronPost = "$kronFolderCurMonth\$yesterday.md"
-        create-post 
+        create-post($span) 
     }    
     backup
 }
+
+If ($MyInvocation.InvocationName -eq '.') { new-kron }
