@@ -9,16 +9,6 @@ This repo contains a PowerShell script for the creation of a templated markdown-
 
 I use it as a morning ritual, for the creation of a family chronicle. 
 
-<!-- TOC -->
-
-- [1. setup](#1-setup)
-    - [1.1. prereqs](#11-prereqs)
-    - [1.2. environmental variables](#12-environmental-variables)
-    - [1.3. destinations](#13-destinations)
-- [2. instructions](#2-instructions)
-
-<!-- /TOC -->
-
 ### 1. setup
 #### 1.1. prereqs
 * [ImageMagick][#1]
