@@ -41,19 +41,30 @@ Name                    | Example Value
 
 ### 2. instructions
 * Connect the phone to the PC in the PTP transfer mode
-* Windows Photo starts automatically (configured as such)
-* Select all the photos to be imported
-* Navigate to the master folder and delete redundant photos 
+* Windows Photo starts automatically (if configured as such)
+* Import your photos to the `kronMasterImageFolder`
+    - I am syncing this with Google Photos at this point
+    - I am also deleting photos from my phone
+* Recommended: Navigate to the master folder and delete redundant photos 
     - [Total Commander](https://www.ghisler.com/) for navigation
     - [IrfanView](https://www.irfanview.com/) for quick viewing / deletion
 * Run the script `. kron.ps1` and write about your yesterday
-    - I set an alias as `k` in the `$profile`
-    - You will get an empty day with selected images that are copied to the chronicle's repo folder
-    - Save
-    - Done
+    - I set an alias as `k` in the `$profile` and just hit `k` to run it from anywhere
+    
+    ```powershell
+    # Invoke-Item $profile
+    Import-Module $env:kronScript
+    Set-Alias k new-kron
+    ```
+
+* The script then:
+    1. Copies, renames and compresses images from the `$env:kronMasterImageFolder`  
+    2. The script puts them in `$env:kronFolder\assets`
+    3. It populates the newly created markdown file with the image links in markdown format
+* You can write about your day with photos already populated
 * To merge all posts into `.pdf` to print out:
-    1. navigate to the folder of the previous month
-    2. run `. kron.ps1 -merge` 
+    1. Navigate to the folder of the previous month
+    2. Run `. kron.ps1 -merge` 
 
 [#1]: https://github.com/pkutaj/kb/blob/master/productivity/2021-03-17-Convert-and-Compress-Images-from-the-Command-Line-with-ImageMagick.md
 [#2]: https://github.com/pkutaj/kb/blob/master/productivity/2021-03-20-Markdown-to-Pdf-with-Pandoc-and-Miktex.md
