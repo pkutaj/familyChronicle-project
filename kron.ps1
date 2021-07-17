@@ -27,9 +27,12 @@ function add-imageFromYesterday([int]$span) {
     
     for ($i; $i -le $span; $i++) {
         $spanObject = New-TimeSpan -Days $i
-        $yesterdayImg = ($today - $spanObject).ToString("yyyyMMdd")
+        <# START OF HARD-CODED-SECTION #>
+        $yesterdayImg = ($today - $spanObject).ToString("yyyyMMdd")     
+        $photosPattern = "IMG_$yesterdayImg.*kron"
+        <# END OF HARD-CODED-SECTION #>
         dir $masterImageFolder | 
-            Where-Object { $_.Name -match "IMG_$yesterdayImg.*kron" } | 
+            Where-Object { $_.Name -match $photosPattern } | 
             ForEach-Object {
                 magick convert $_ -resize 800x600 -strip -define jpeg:extent=200kb "$kronImageFolder\$yesterday-$j.jpg"
                 Add-Content $kronPost -Value "`r`n![$yesterday](../assets/$yesterday-$j.jpg)"
