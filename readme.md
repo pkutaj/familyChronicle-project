@@ -13,7 +13,7 @@ I use it as a morning ritual, for the creation of a family chronicle.
 #### 1.1. prereqs
 * [ImageMagick][#1]
 * [MikTex/Pandoc][#2]
-* [git/GH][#3]
+* [optional: git/GitHub for Storage + UI][#3]
 
 #### 1.2. environmental variables
 * you need the following envirnomental variables
@@ -56,6 +56,6 @@ Name                    | Example Value
     1. Navigate to the folder of the previous month
     2. Run `. kron.ps1 -merge` 
 
-[#1]: https://github.com/pkutaj/kb/blob/master/productivity/2021-03-17-Convert-and-Compress-Images-from-the-Command-Line-with-ImageMagick.md
-[#2]: https://github.com/pkutaj/kb/blob/master/productivity/2021-03-20-Markdown-to-Pdf-with-Pandoc-and-Miktex.md
-[#3]: https://github.com/pkutaj/kb/blob/master/ntw/2021-03-27-Redirect-to-a-GitHub-Repo-from-a-Top-Level-Domain.md
+[#1]: https://pavolkutaj.medium.com/convert-and-compress-images-from-the-command-line-with-imagemagick-9d08e6537255
+[#2]: https://pavolkutaj.medium.com/markdown-to-pdf-with-pandoc-and-miktex-58b578cedf4b
+[#3]: https://pavolkutaj.medium.com/redirect-to-a-github-repo-from-a-top-level-domain-db7ce8d3b80
