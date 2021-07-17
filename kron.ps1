@@ -28,8 +28,9 @@ function add-imageFromYesterday([int]$span) {
     for ($i; $i -le $span; $i++) {
         $spanObject = New-TimeSpan -Days $i
         <# START OF HARD-CODED-SECTION #>
-        $yesterdayImg = ($today - $spanObject).ToString("yyyyMMdd")     
-        $photosPattern = "IMG_$yesterdayImg.*kron"
+        $timeStampPattern = "yyyyMMdd"
+        $yesterdayPattern = ($today - $spanObject).ToString($timeStampPattern)     
+        $photosPattern = "IMG_$yesterdayPattern.*kron"
         <# END OF HARD-CODED-SECTION #>
         dir $masterImageFolder | 
             Where-Object { $_.Name -match $photosPattern } | 
