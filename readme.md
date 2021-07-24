@@ -71,6 +71,9 @@ Set-Alias k new-kron
 * Import your photos to the `kronMasterImageFolder`
     - I am syncing this with Google Photos at this point
     - I am also deleting photos from my phone
+
+![](./assets/img002992.jpg)
+
 * Recommended: Navigate to the master folder and delete redundant photos 
     - [Total Commander](https://www.ghisler.com/) for navigation
     - [IrfanView](https://www.irfanview.com/) for quick viewing / deletion
