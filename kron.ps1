@@ -101,6 +101,16 @@ function new-kron {
         create-post($span) 
     }    
     backup
+
+    <#
+    .SYNOPSIS
+        A script that creates an markdown entry of the dialy journal
+    .DESCRIPTION
+        Switches:
+        -merge    | merges all markdown files into a monthly .pdf file for potential print-out
+        -span <n> | looks for images from <n>-days ago; default is 1
+    #>
+
 }
 
 If ($MyInvocation.InvocationName -eq '.') { new-kron }
