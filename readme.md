@@ -3,6 +3,7 @@
 
 ![PowerShell Badge](https://img.shields.io/badge/PowerShell-5391FE?logo=powershell&logoColor=fff&style=flat)
 ![Windows Badge](https://img.shields.io/badge/Windows-0078D6?logo=windows&logoColor=fff&style=flat)
+![Android Badge](https://img.shields.io/badge/Android-3DDC84?logo=android&logoColor=fff&style=flat)
 ![Visual Studio Code Badge](https://img.shields.io/badge/Visual%20Studio%20Code-007ACC?logo=visualstudiocode&logoColor=fff&style=flat)
 
 This repo contains a PowerShell script for the creation of a templated markdown-based journal entry for yesterday which imports and compresses images from a given folder. 
@@ -13,7 +14,8 @@ I use it as a morning ritual, for the creation of a family chronicle.
 #### 1.1. Item Creation
 ![](./assets/2021-07-24-283.gif)
 
-#### WebUI (optional)
+#### 1.2. WebUI (optional)
+![](./assets/2021-08-04-301.gif)
 
 ### 2. setup
 #### 2.1. prereqs
