@@ -1,6 +1,8 @@
 function build-folderStructure {
     $curYear = (Get-Date).year
     $newYearFolder = "$env:kronFolder\$curYear"
+    mkdir $newYearFolder
+    mkdir "$newYearFolder\assets"
     Push-Location $newYearFolder
     $months = 1..12
     ForEach ($MM in $months) {
@@ -23,6 +25,7 @@ function add-imageFromYesterday([int]$span) {
     $i = 1
     $j = 1
     $masterImageFolder = "$env:kronMasterImageFolder\$yyyy"
+    if (-not (Test-Path "$env:kronMasterImageFolder\$yyyy")) { mkdir "$env:kronMasterImageFolder\$yyyy" }
     $kronImageFolder = "$kronfolder\$yyyy\assets" 
     
     for ($i; $i -le $span; $i++) {
