@@ -32,19 +32,10 @@ Name                    | Example Value
 `kronFolder`            | `c:\journal`
 
 #### 2.3. manual work
-* Manually create an annual folder within `kronMasterImageFolder`
-    - this is where you import your photos from the phone
-
-```
-c:\photos\2019
-c:\photos\2020
-c:\photos\2021
-```
-
 * You have to **hard code** the pattern catching the actual images for a selected timespan:
     - open https://github.com/pkutaj/kronCLI/blob/master/kron.ps1#L30-L34
     - based on your files, you need to properly define 2 variables: `$timeStampPattern` and `$photosPattern`
-    - just navigate to your annual `kronMasterImageFolder` (e.g. `c:\photos\2021`) and run something like
+    - just navigate to your annual `kronMasterImageFolder\yyyy` (e.g. `c:\photos\2021`) and run something like
 
 ```powershell
 # c:\photos\2021
