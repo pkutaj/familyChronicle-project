@@ -52,11 +52,11 @@ function create-post([int]$span) {
         Invoke-Item $kronPost
     }
     Else {
+        If (Read-Host "Modify mediaList? (y/Enter)") { Invoke-Item $mediaList }
         New-Item $kronPost
         Set-Content $kronPost -Value "### $yesterday"
         add-imageFromYesterday($span)
         code $kronFolder
-        If (Read-Host "Modify mediaList? (y/Enter)") { Invoke-Item $mediaList }
         Invoke-Item $kronPost
     }
 } 
