@@ -8,7 +8,7 @@
 
 This repo contains a PowerShell script for the creation of a templated markdown-based journal entry for yesterday which imports and compresses images from a given folder. 
 
-I use it as a morning ritual, for the creation of a family chronicle. 
+I use it as a morning ritual writing a privately distributed family chronicle which is turning out to be a [keystone habbit](https://jamesclear.com/keystone-habits). 
 
 ### 1. demo
 #### 1.1. Item Creation
