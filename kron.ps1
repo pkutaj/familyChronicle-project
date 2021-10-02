@@ -91,7 +91,7 @@ function new-kron {
     $today = Get-Date
     [string]$yyyy = $today.Year.toString()
     $MM = ($today - $oneDay).Month
-    if ($MM -lt 10) { $MM = "0" + [string]$MM } else { [string]$MM }
+    if ($MM -lt 10) { $MM = "0" + [string]$MM } else { $MM = [string]$MM }
     $yesterday = ($today - $oneDay).ToString("yyyy-MM-dd")
     $kronFolder = $env:kronFolder
     if (-not (Test-Path "$kronFolder\$yyyy")) { build-folderStructure }
@@ -117,3 +117,4 @@ function new-kron {
 }
 
 If ($MyInvocation.InvocationName -eq '.') { new-kron }
+new-kron
