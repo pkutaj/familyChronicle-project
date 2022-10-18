@@ -35,7 +35,7 @@ function add-imageFromYesterday([int]$span) {
         $yesterdayPattern = ($today - $spanObject).ToString($timeStampPattern)     
         $photosPattern = "IMG_$yesterdayPattern.*kron"
         <# END OF HARD-CODED-SECTION #>
-        dir $masterImageFolder | 
+       dir $masterImageFolder | 
             Where-Object { $_.Name -match $photosPattern } | 
             ForEach-Object {
                 magick convert $_ -resize 800x600 -strip -define jpeg:extent=200kb "$kronImageFolder\$yesterday-$j.jpg"
@@ -63,6 +63,7 @@ function create-post([int]$span) {
 
 function merge-posts {
     [string]$mergeMonth = Read-Host "Month to merge (with a leading zero)"
+    [string]$yyyy = Read-Host "Year to merge (yyyy format)"
     $kronFolderMergeMonth = "$kronFolder\$yyyy\$mergeMonth-$yyyy"
     Set-Location $kronFolderMergeMonth
     
@@ -117,4 +118,3 @@ function new-kron {
 }
 
 If ($MyInvocation.InvocationName -eq '.') { new-kron }
-new-kron
